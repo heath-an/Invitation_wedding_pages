@@ -35,14 +35,34 @@ class Petal {
 
     this.initialize()
   }
+/**
+   * 꽃잎 이미지에 원하는 색상을 입히기 위한 오프스크린 캔버스 생성 함수
+   */
+  createColoredPetal() {
+    const offCanvas = document.createElement("canvas")
+    offCanvas.width = 50
+    offCanvas.height = 50
+    const offCtx = offCanvas.getContext("2d")
 
+    if (offCtx) {
+      // 1. 원본 이미지 그리기
+      offCtx.drawImage(this.petalImg, 0, 0, 50, 50)
+      
+      // 2. 원하는 색상으로 덮어씌우기 (여기서 색상 코드 변경 가능: 예="#d78c96" 로즈골드빛)
+      offCtx.globalCompositeOperation = "source-in"
+      offCtx.fillStyle = "#d78c96" 
+      offCtx.fillRect(0, 0, 50, 50)
+
+      this.offscreenCanvas = offCanvas
+    }
+  }
   /**
    * 꽃잎의 크기, 투명도, 속도 등을 무작위로 초기화합니다.
    */
   initialize() {
     this.w = 25 + Math.random() * 15
     this.h = 20 + Math.random() * 10
-    this.opacity = this.w / 80
+    this.opacity = this.w / 60
     this.flip = Math.random()
 
     this.xSpeed = X_SPEED + Math.random() * X_SPEED_VARIANCE
@@ -112,7 +132,7 @@ export const BGEffect = () => {
      * 화면 크기에 따른 적절한 꽃잎 개수를 계산합니다.
      */
     const getPetalNum = () => {
-      return Math.floor((window.innerWidth * window.innerHeight) / 30000)
+      return Math.floor((window.innerWidth * window.innerHeight) / 70000)
     }
 
     /**
