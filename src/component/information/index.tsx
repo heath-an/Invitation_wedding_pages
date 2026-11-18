@@ -16,9 +16,9 @@ export const Information1 = () => {
       <div className="info-card">
         <div className="label">식사 안내</div>
         <div className="content">
-          식사시간: 12시 30분 ~ 14시 30분
+          식사시간: 14시 00분 ~ 16시 00분??
           <br />
-          장소: 지하 1층 연회장
+          장소: 프란치스코 홀
         </div>
       </div>
     </>
@@ -38,6 +38,12 @@ export const Information2 = () => {
       <div className="info-card">
         <div className="label">마음 전하기</div>
         <div className="content">
+          <b>축하 화환은 반입 불가</b> 사유로 정중히 거절드리며, 
+          <br />
+          꽃바구니, 쌀 화환(거치대 없이 쌀 포대에 리본만 부착)은
+          <br />
+          성당 내 반입 가능합니다.
+          <br />
           참석이 어려워 직접 축하해주지 못하는
           <br />
           분들을 위해 계좌번호를 기재하였습니다.
